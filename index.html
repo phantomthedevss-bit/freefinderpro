@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreeFinder — Type anything. Get it FREE. Legally.</title>
+<meta name="description" content="Search any game, app, book, course, tool or object and get the legit free version + exactly how to pick it up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+<div class="marquee"><div class="marquee-track"><span>FREE • LEGAL • NO PIRACY • NO CRACKS • INSTANT CLAIM • FREE • LEGAL • NO PIRACY • NO CRACKS • INSTANT CLAIM • FREE • LEGAL •</span><span>FREE • LEGAL • NO PIRACY • NO CRACKS • INSTANT CLAIM • FREE • LEGAL • NO PIRACY • NO CRACKS • INSTANT CLAIM • FREE • LEGAL •</span></div></div>
+
+<header class="nav">
+  <a class="logo" href="#">⚡ FREE<span>FINDER</span></a>
+  <nav>
+    <a href="#discover">Discover</a>
+    <a href="#how">How it works</a>
+    <a href="#physical">Physical Stuff</a>
+    <button id="savedBtn" class="saved-btn">♥ Saved <b id="savedCount">0</b></button>
+  </nav>
+  <div class="badge">100% FREE • 100% LEGAL</div>
+</header>
+
+<main>
+<section class="hero" id="discover">
+  <div class="pill">✦ 20+ FREE SOURCES CHECKED IN SECONDS ✦</div>
+  <h1>Type anything.<br><span class="grad">Get it FREE.</span></h1>
+  <p class="sub">Games, apps, books, courses, tools, music — even a real sofa near you. We hunt the internet for the legit free version + <b>exactly how to pick it up.</b></p>
+
+  <form id="searchForm" class="search-box">
+    <span class="search-icon">🔍</span>
+    <input id="q" type="text" placeholder="Try: Photoshop, Elden Ring, Python course, sofa, Spotify..." autocomplete="off" />
+    <button type="submit">Find Free Stuff →</button>
+  </form>
+
+  <div class="cats" id="cats">
+    <button data-cat="all" class="active">✦ All</button>
+    <button data-cat="games">🎮 Games</button>
+    <button data-cat="apps">📱 Apps &amp; Software</button>
+    <button data-cat="books">📚 Books</button>
+    <button data-cat="courses">🎓 Courses</button>
+    <button data-cat="media">🎵 Music &amp; Media</button>
+    <button data-cat="physical">🛋️ Physical Stuff</button>
+  </div>
+
+  <div class="trending">
+    <span>Trending:</span>
+    <button data-trend="Photoshop">Photoshop</button>
+    <button data-trend="Elden Ring">Elden Ring</button>
+    <button data-trend="Python course">Python course</button>
+    <button data-trend="Spotify">Spotify</button>
+    <button data-trend="Minecraft">Minecraft</button>
+    <button data-trend="Notion">Notion</button>
+    <button data-trend="Harry Potter">Harry Potter</button>
+    <button data-trend="Figma">Figma</button>
+    <button data-trend="sofa">sofa 🛋️</button>
+  </div>
+
+  <div class="hero-actions">
+    <button id="surpriseBtn" class="ghost">🎲 Surprise Me</button>
+    <button id="nearMeBtn" class="ghost">📍 Free stuff near me</button>
+    <span class="hint">No sign-up to search. No piracy. Ever.</span>
+  </div>
+
+  <div class="stats">
+    <div><b id="statGames">12,400+</b><span>free games indexed</span></div>
+    <div><b>70k+</b><span>free books</span></div>
+    <div><b>$0</b><span>spent, ever</span></div>
+    <div><b>100%</b><span>legal sources</span></div>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <h2>How it works</h2>
+  <div class="how-grid">
+    <div class="how-card"><div class="num">1</div><h3>Type it</h3><p>Anything. A game, an app, a textbook, a bike, a course. If it exists, there is probably a free version.</p></div>
+    <div class="how-card"><div class="num">2</div><h3>We check 20+ sources</h3><p>Steam free, Epic free, Gutenberg, Open Library, GitHub, Freecycle, Craigslist Free, Olio + curated alternatives.</p></div>
+    <div class="how-card"><div class="num">3</div><h3>Follow pickup steps</h3><p>Every result tells you exactly what to click, what account you need, and how long it takes. No guessing.</p></div>
+  </div>
+</section>
+
+<section class="results-wrap" id="resultsWrap" style="display:none">
+  <div class="results-head">
+    <div>
+      <h2 id="resultsTitle">Results</h2>
+      <p id="resultsMeta">Checking sources...</p>
+    </div>
+    <div class="filters">
+      <label><input type="checkbox" id="onlyFree" checked> Only 100% Free</label>
+      <label><input type="checkbox" id="noSignup"> No Sign-up</label>
+      <select id="sortSel"><option value="best">Sort: Best Match</option><option value="rating">Sort: Highest Rated</option><option value="az">Sort: A–Z</option></select>
+    </div>
+  </div>
+  <div id="loading" class="loading" style="display:none">
+    <div class="spinner"></div>
+    <p>Checking Steam, Epic, Gutenberg, GitHub, Open Library, Freecycle...<br><span id="loadingFun">Hunting for freebies...</span></p>
+  </div>
+  <div id="results" class="grid"></div>
+  <div id="empty" class="empty" style="display:none">
+    <h3>Nothing found? That is weird.</h3>
+    <p>Try a broader term like "photo editor" instead of a super specific title, or check Physical Stuff for real-world freebies.</p>
+  </div>
+</section>
+
+<section class="examples">
+  <h2>People are finding these free right now 🔥</h2>
+  <div class="example-grid" id="exampleGrid"></div>
+</section>
+
+<section id="physical" class="physical">
+  <div class="physical-inner">
+    <div>
+      <h2>Real stuff. Real free.<br>Near you.</h2>
+      <p>Not everything is digital. Search for <b>sofa, bike, desk, microwave</b> and we show you Freecycle, Craigslist Free, Olio and Freegle — with safety steps for pickup.</p>
+      <ul>
+        <li>✅ Meet in a public place, daytime</li>
+        <li>✅ Bring a friend for big items</li>
+        <li>✅ Inspect before you take it</li>
+        <li>✅ Never pay a “holding fee” — free means free</li>
+      </ul>
+      <button class="cta" onclick="document.getElementById('q').value='sofa';document.getElementById('searchForm').dispatchEvent(new Event('submit'))">Find a free sofa →</button>
+    </div>
+    <div class="physical-cards" id="physicalCards"></div>
+  </div>
+</section>
+
+<section class="faq">
+  <h2>Is this actually legal?</h2>
+  <p>Yes. FreeFinder only links to public-domain books, free-to-play games, open-source software, free tiers, libraries, and community giveaway sites. <b>No cracks, no torrents, no keygens, no pirated copies.</b> If something is paid-only, we show you the closest legal free alternative instead.</p>
+</section>
+</main>
+
+<footer>
+  <div><b>⚡ FREEFINDER</b><p>Made for people who love free stuff — the legal kind.</p></div>
+  <div><a href="#discover">Search</a><a href="#how">How it works</a><a href="#physical">Physical Stuff</a></div>
+  <div><small>Sources: FreeToGame • Open Library • Gutenberg • GitHub • iTunes • Freecycle • Craigslist Free • Olio • Freegle<br>Built to deploy on Vercel in 2 minutes. No API keys.</small></div>
+</footer>
+
+<!-- Pickup Modal -->
+<div id="modal" class="modal" style="display:none">
+  <div class="modal-card">
+    <button id="closeModal" class="close">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Saved Drawer -->
+<div id="savedDrawer" class="drawer" style="display:none">
+  <div class="drawer-card">
+    <div class="drawer-head"><h3>♥ Your Saved Freebies</h3><button id="closeSaved">✕</button></div>
+    <div id="savedList"></div>
+    <button id="clearSaved" class="ghost">Clear all</button>
+  </div>
+</div>
+
+<div id="toast" class="toast" style="display:none"></div>
+<canvas id="confetti" width="800" height="400" style="display:none"></canvas>
+<script src="app.js"></script>
+</body>
+</html>

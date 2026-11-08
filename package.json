@@ -1,0 +1,12 @@
+{
+  "name": "freefinder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FreeFinder - Type anything, get it free. Legally. Games, apps, books, courses, tools, music and real stuff near you.",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "engines": { "node": ">=18" }
+}
